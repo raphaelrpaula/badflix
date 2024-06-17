@@ -1,0 +1,55 @@
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: #141414;
+}
+
+@mixin d($dispositivo) {
+  @if $dispositivo == wt {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $dispositivo == t {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $dispositivo == m {
+    @media (max-width: 560px) {
+      @content;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1216px;
+  margin: 0 auto;
+
+  @include d(wt) {
+    max-width: 928px;
+  }
+
+  @include d(t) {
+    max-width: 688px;
+  }
+
+  @include d(m) {
+    max-width: 366px;
+  }
+}
