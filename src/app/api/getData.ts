@@ -1,15 +1,18 @@
-type Season = {
-  air_date: string;
-  episode_count: number;
+type Stars = {
+  character: string;
+  credit_id: string;
+  order: number;
+  adult: boolean;
+  gender: 0 | 1 | 2;
   id: number;
+  know_for_department: string;
   name: string;
-  overview: string;
-  poster_path: string;
-  season_number: number;
-  vote_average: number;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
 };
 
-type Episode = {
+export type Episode = {
   id: number;
   overview: string;
   name: string;
@@ -23,6 +26,18 @@ type Episode = {
   season_number: number;
   show_id: number;
   still_path: string;
+};
+
+export type Season = {
+  id: number;
+  air_date: string;
+  episode_count: number;
+  episodes: Episode[];
+  name: string;
+  overview: string;
+  poster_path: string;
+  season_number: number;
+  vote_average: number;
 };
 
 type Serie = {
@@ -39,7 +54,8 @@ type Serie = {
   vote_average: number;
 };
 
-const api_key = process.env.API_KEY;
+export const api_key = process.env.API_KEY;
+export const api_img_url = process.env.API_IMG;
 
 export async function getSerie() {
   const response = await fetch(
@@ -48,8 +64,10 @@ export async function getSerie() {
   return (await response.json()) as Serie;
 }
 
-// export async function getSeasons() {
-//   const response = await getSerie();
-//   const data = await response.json();
-//   return data.seasons as Season[];
-// }
+export async function getSeasonEpisodes(season: number) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/tv/1396/season/${season}?api_key=${api_key}`
+  );
+  const json = await response.json();
+  return json.episodes as Episode[];
+}

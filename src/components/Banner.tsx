@@ -1,7 +1,7 @@
 import { getSerie } from "@/app/api/getData";
 import Image from "next/image";
 import style from "@/components/banner.module.scss";
-import Button from "./button";
+import Button from "./Button";
 
 export default async function Banner() {
   const serie = await getSerie();
@@ -15,8 +15,8 @@ export default async function Banner() {
           <p>{serie.overview}</p>
 
           <div className={style.cta}>
-            <Button variant="primary">Assistir</Button>
-            <Button variant="secondary">Mais informações</Button>
+            <Button variant="primary">Play</Button>
+            <Button variant="secondary">More Info</Button>
             {/* <span>Temporadas: {serie.number_of_seasons}</span> */}
           </div>
         </div>
