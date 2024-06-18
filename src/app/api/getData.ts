@@ -39,9 +39,11 @@ type Serie = {
   vote_average: number;
 };
 
+const api_key = process.env.API_KEY;
+
 export async function getSerie() {
   const response = await fetch(
-    "https://api.themoviedb.org/3/tv/1396?api_key=57762c9d04d6200c065266d3f986a0c5"
+    `https://api.themoviedb.org/3/tv/1396?api_key=${api_key}`
   );
   return (await response.json()) as Serie;
 }
