@@ -1,0 +1,13 @@
+.seasonList {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  li {
+    h2 {
+      font-size: 2.4rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+  }
+}

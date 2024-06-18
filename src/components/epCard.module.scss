@@ -1,0 +1,17 @@
+.epCard {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  flex: none;
+
+  a {
+    text-decoration: none;
+
+    p {
+      text-align: center;
+      padding: 24px;
+      color: #fff;
+    }
+  }
+}
