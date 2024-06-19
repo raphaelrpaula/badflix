@@ -55,7 +55,7 @@ type Serie = {
 };
 
 export const api_key = process.env.API_KEY;
-export const api_img_url = process.env.API_IMG;
+export const api_img_url = process.env.NEXT_PUBLIC_API_IMG;
 
 export async function getSerie() {
   const response = await fetch(

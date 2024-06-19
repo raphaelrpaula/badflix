@@ -9,10 +9,7 @@ export default function Home() {
       <Header />
       <Banner />
       <Seasons />
-
-      <section className="season-list container">
-        <SeasonList />
-      </section>
+      <SeasonList />
     </main>
   );
 }

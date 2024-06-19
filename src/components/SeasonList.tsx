@@ -7,7 +7,7 @@ export default async function SeasonList() {
   const seasons = serie.seasons;
 
   return (
-    <ul className={style.seasonList}>
+    <ul className={style.seasonList + " container"}>
       {seasons
         .filter((season) => season.season_number > 0)
         .map((season) => (
