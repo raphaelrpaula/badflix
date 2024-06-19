@@ -1,11 +1,10 @@
-import { getSerie } from "@/app/api/getData";
+import { api_img_url, getSerie } from "@/app/api/getData";
 import Image from "next/image";
 import style from "@/components/banner.module.scss";
 import Button from "./Button";
 
 export default async function Banner() {
   const serie = await getSerie();
-  const api_img_url = process.env.API_IMG;
 
   return (
     <section className={style.banner}>
@@ -23,7 +22,7 @@ export default async function Banner() {
 
         <div className={style.bannerImg}>
           <Image
-            src={api_img_url + "original/" + serie.backdrop_path}
+            src={api_img_url + "original" + serie.backdrop_path}
             alt={serie.name}
             width={1920}
             height={800}
